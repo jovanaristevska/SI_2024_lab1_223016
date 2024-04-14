@@ -1,0 +1,93 @@
+4. cd "C:\Users\User\OneDrive\Desktop\SI_2024_lab1_223016"
+$ git init
+5. git remote add origin https://github.com/jovanaristevska/SI_2024_lab1_223016.git
+6.nano README.md
+$git add README.md
+$git commit -m "Initial commit"
+$git push origin master
+7. git add .
+git commit -m "Add starter code"
+8. $ git push origin master
+9. $ git branch bug1
+$ git branch bug2
+10.$ git checkout bug1
+11.  Во методот filterOddLengthStrings направив наместо стринговите со парна должина, да ги филтрира стринговите со непарна должина. 
+Променив од if (el.length() % 2 == 0) во if (el.length() % 2 != 0)
+$git add .
+$ git commit -m "Fix wrong condition in filterOddLengthStrings"
+12. $ git checkout bug2
+13. во методот makeBigStringFrom направив наместо да ги конкатенира стринговите со помала должина од minLength, да ги конкатенира стринговите со должина најмалку minLength. 
+Променив од if (el.length() < minLength) во if (el.length() >= minLength)
+$git add .
+$ git commit -m "Fix wrong condition in makeBigStringFrom"
+14. $ git checkout bug1
+15. Во класата додадов System.out.println(SILab1_1.filterOddLengthStrings(list));
+$ git add .
+$ git commit -m "Call method filterOddLengthStrings in main class"
+16. $ git checkout bug2
+17. Во класата SILab1Main додадов System.out.println(SILab1_2.makeBigStringFrom(list));.
+$ git add .
+$ git commit -m "Call method makeBigStringFrom in main class"
+18. $ git push --all
+19.$ git checkout master
+20. $ git merge bug1
+Нема конфликт, се споија со Fast forward
+Updating 103301c..60ebd55
+Fast-forward
+ .idea/.gitignore              | 8 ++++++++
+ .idea/SI_2024_lab1_223016.iml | 9 +++++++++
+ .idea/modules.xml             | 8 ++++++++
+ .idea/vcs.xml                 | 6 ++++++
+ SILab1Main.java               | 1 +
+ SILab1_1.java                 | 2 +-
+ 6 files changed, 33 insertions(+), 1 deletion(-)
+ create mode 100644 .idea/.gitignore
+ create mode 100644 .idea/SI_2024_lab1_223016.iml
+ create mode 100644 .idea/modules.xml
+ create mode 100644 .idea/vcs.xml
+
+21.$ git push origin master
+$ git push --all
+22. $ git checkout bug2
+23. $ git rebase master
+Го решив проблемот со бришење на линијата Call method makeBigStringFrom in main class.
+
+import java.util.Scanner;
+
+public class SILab1Main {    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        List<String> list = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            list.add(sc.next());
+        }
+
+        System.out.println(SILab1_1.filterOddLengthStrings(list));
+
+    }
+}
+
+$ git add SILab1Main.java
+$ git rebase --continue
+$ git commit --amend
+
+
+24. $ git checkout master
+25.
+$ git merge bug2
+Updating 60ebd55..19644ce
+Fast-forward
+ .idea/workspace.xml | 60 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ SILab1Main.java     |  5 +++--
+ SILab1_2.java       |  2 +-
+ 3 files changed, 64 insertions(+), 3 deletions(-)
+ create mode 100644 .idea/workspace.xml
+
+Нема конфликт, споени се со Fast forward.
+26. $ git push --all
+27. $ git push origin bug2 --force
+
+
